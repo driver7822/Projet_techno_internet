@@ -1,0 +1,15 @@
+.prix-et-boutton {
+    align-self: flex-end;
+    padding-bottom: 1em;
+    padding-right: 1.5em;
+    justify-content: right;
+    text-align: right;
+}
+
+.titre-et-description {
+    padding-top: 1%;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}

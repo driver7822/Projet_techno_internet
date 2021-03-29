@@ -1,4 +1,4 @@
-<br><h1>ERREUR 404</h1>
+<h1>ERREUR 404</h1>
 Page non trouvée
 
 
