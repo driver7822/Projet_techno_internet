@@ -6,10 +6,69 @@
     text-align: right;
 }
 
+.prix-et-boutton-detail{
+    border: 1px solid lightgray;
+    padding-top: 1em;
+    justify-content: right;
+}
+
+.titre-et-description-detail{
+    padding-top: 1em;
+}
+
+.titre-produit-detail {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.titre-produit {
+    font-size: 3em;
+    font-weight: bold;
+    border-bottom: 1px solid lightgray;
+}
+
+.affichage-prix {
+    font-size: 1.5em;
+}
+
 .titre-et-description {
     padding-top: 1%;
 }
 
+.bouton-boutique {
+   margin: 1%;
+}
+
 .navbar .navbar-collapse {
     text-align: center;
+}
+
+.avis {
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid lightgray;
+}
+
+.avis-identification {
+    border-right: 1px solid gray;
+}
+
+.avis-message {
+   padding-left: 2em;
+}
+
+.filtre-categorie {
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.bouton-connexion-user {
+    justify-content: right;
+    text-align: center;
+}
+
+.creation-compte {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }

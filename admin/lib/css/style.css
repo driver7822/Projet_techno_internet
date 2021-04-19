@@ -13,5 +13,14 @@ body {
     border: 1px solid white;
     border-radius: 5px;
     color: white;
+    font-weight: bold !important;
 }
 
+.footer {
+    align-self: flex-end;
+}
+
+.text-center {
+    margin-left: auto;
+    margin-right: auto;
+}
