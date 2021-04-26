@@ -12,12 +12,52 @@
                     <a class="nav-link" href="index.php?page=accueil_admin.php">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Gestion des stocks</a>
+                    <a class="nav-link" href="index.php?page=gestion_produit.php">Gestion des produits</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Info</a>
                 </li>
+
             </ul>
         </div>
+        <?php
+            if (!isset($_SESSION['admin'])) {
+
+
+        ?>
+        <div class="collapse navbar-collapse bouton-connexion-user" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?page=connexion_admin.php">Se connecter</a>
+                </li>
+
+        <?php
+            }
+        ?>
+        <?php
+        if(isset($_SESSION['admin'])){
+            ?>
+        <div class="collapse navbar-collapse bouton-connexion-user" id="navbarNavDropdown">
+            <div class="navbar-nav">
+            <li class="nav-item dropdown dropstart">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <?php
+                        print $_SESSION['login_admin'];
+                    ?>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="index.php?page=deconnexion.php">Déconnexion</a></li>
+                </ul>
+            </li>
+            </div>
+        </div>
+            <?php
+        }
+        ?>
+
+
     </div>
 </nav>

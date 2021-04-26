@@ -31,6 +31,10 @@
             <input class="form-control" id="Date de naissance" name="date" placeholder="JJ/MM/YYYY" type="date"/>
         </div>
 
-
+        <div class="mb-3">
+            <br>
+            <br>
+            <button class="w-100 btn btn-lg btn-success" type="submit">Créer un compte</button>
+        </div>
     </form>
 </div>

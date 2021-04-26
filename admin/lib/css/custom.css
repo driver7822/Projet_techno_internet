@@ -22,7 +22,7 @@
 }
 
 .titre-produit {
-    font-size: 3em;
+    font-size: 2em;
     font-weight: bold;
     border-bottom: 1px solid lightgray;
 }
@@ -63,8 +63,8 @@
 }
 
 .bouton-connexion-user {
-    justify-content: right;
-    text-align: center;
+    justify-content: flex-end !important;
+    margin-right: 0;
 }
 
 .creation-compte {

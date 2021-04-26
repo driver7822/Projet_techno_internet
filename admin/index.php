@@ -1,6 +1,8 @@
 <!doctype html>
 <?php
 session_start();
+include('./lib/php/admin_liste_include.php');
+$cnx = Connexion::getInstance($dsn,$user,$password);
 ?>
 <html>
 <head>

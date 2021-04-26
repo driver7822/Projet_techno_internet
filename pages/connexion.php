@@ -15,10 +15,26 @@
             </div>
             <br>
             <button class="w-100 btn btn-lg btn-success" type="submit">Connexion</button>
-        </form>
-        <a href="" onclick="alert('sheh');" class="btn btn-primary bouton-boutique">Mot de passe oublié</a>
+        </form><br>
+        <button type="button" class="btn btn-primary bouton-boutique" data-bs-toggle="modal" data-bs-target="#mot_de_passe_oublie">
+            Mot de passe oublié
+        </button>
         <a href="index.php?page=creation_compte_user.php" class="btn btn-primary bouton-boutique">Créer un compte</a>
     </main>
 </div>
+
+<div class="modal fade" id="mot_de_passe_oublie" tabindex="-1" aria-labelledby="mot_de_passe_oublie" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                Veuillez contacter un administrateur pour récupérer votre mot de passe
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <br><br>

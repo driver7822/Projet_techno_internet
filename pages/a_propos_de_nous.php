@@ -1,5 +1,5 @@
 <br>
-
+<h1 style="text-decoration: underline;">À propos de nous : </h1><br>
 <h2>Qui sommes nous ?</h2>
 <p>Dunder Mifflin est une compagnie spécialisée dans la vente de produit bureautique</p>
 
