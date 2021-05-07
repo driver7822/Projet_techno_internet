@@ -13,8 +13,9 @@
         } else {
             $message = "Pseudo ou mot de passe incorrecte";
         }
-    }
-
+    }?>
+<div class="text-center col-md-6" style="padding-top: 10em">
+<?php
 if (isset($message) && !isset($_SESSION['admin'])){
     ?>
     <br>
@@ -39,7 +40,7 @@ if (isset($message) && !isset($_SESSION['admin'])){
 ?>
 
 <br>
-<div class="text-center col-md-6">
+
     <main class="form-signin">
         <form action="<?php print $_SERVER['PHP_SELF'];?>" method="POST">
             <h1 class="h3 mb-3 fw-normal">Connexion Admin</h1>

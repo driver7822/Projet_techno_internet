@@ -17,3 +17,7 @@
 
 <h2>Où nous trouver ?</h2>
 <p>Vous pouvez commander sur ce site ou alors venir à nos bureaux</p>
+
+<h3>Les admins, c'est ici !</h3>
+<a class="btn btn-primary" href="./admin/index.php?page=accueil_admin.php">Ici !</a>
+<br>

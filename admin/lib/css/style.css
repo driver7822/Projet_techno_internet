@@ -5,15 +5,15 @@ body {
     background-color: #15384e;
 }
 
-.navbar_custom .navbar-nav .nav-link {
+.navbar_custom .navbar-nav .nav-item .nav-link {
     color: white;
 }
 
-.navbar_custom .navbar-nav .nav-link:hover{
+.navbar_custom .navbar-nav .nav-item .nav-link:hover{
     border: 1px solid white;
     border-radius: 5px;
     color: white;
-    font-weight: bold !important;
+    font-weight: bold;
 }
 
 .footer {

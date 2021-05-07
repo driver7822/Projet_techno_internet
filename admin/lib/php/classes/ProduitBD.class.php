@@ -34,6 +34,16 @@ class ProduitBD extends Produit {
         $this->_db->commit();
     }
 
+    public function getProduitById2($id){
+        $query = "SELECT * FROM produit WHERE id_produit=:id";
+        $_resultset = $this->_db->prepare($query);
+        $_resultset->bindValue(':id',$id);
+        $_resultset->execute();
+
+        $data = $_resultset->fetch();
+        return $data;
+    }
+
     public function getProduitByMotCle(){
 
     }
@@ -50,5 +60,63 @@ class ProduitBD extends Produit {
         $this->_db->commit();
     }
 
+    public function updateProduit($id_produit,$nom,$desc,$prix,$stock,$id_categorie){
+        try {
+            $query = "SELECT updateProduit(:id_produit,:nom,:desc,:prix,:stock,:id_categorie) as retour";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(":id_produit",$id_produit);
+            $_resultset->bindValue(":nom",$nom);
+            $_resultset->bindValue(":desc",$desc);
+            $_resultset->bindValue(":prix",$prix);
+            $_resultset->bindValue(":stock",$stock);
+            $_resultset->bindValue(":id_categorie",$id_categorie);
+            $_resultset->execute();
+            $retour = $_resultset->fetchColumn(0);
 
+            return $retour;
+        } catch (PDOException $e){
+            print "Echec de la requête : ".$e->getMessage();
+        }
+    }
+
+    public function updatePhotoProduit($photo,$id_produit){
+        try{
+            $query = "UPDATE produit SET photo=:photo WHERE id_produit = :id";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(":photo",$photo);
+            $_resultset->bindValue(":id",$id_produit);
+            $_resultset->execute();
+        } catch (PDOException $e){
+            print "Echec de la requête : ".$e->getMessage();
+        }
+    }
+
+    public function deleteProduit($id){
+        try {
+            $query = "DELETE FROM produit WHERE id_produit=:id";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(":id",$id);
+            $_resultset->execute();
+        } catch (PDOException $e){
+            print "Echec de la requête : ".$e->getMessage();
+        }
+    }
+
+    public function ajoutProduit($nom,$description,$prix,$stock,$photo,$id_categorie){
+        try {
+            $query = "SELECT ajoutproduit(:nom,:description,:prix,:stock,:photo,:id_categorie) as retour";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(":nom",$nom);
+            $_resultset->bindValue(":description",$description);
+            $_resultset->bindValue(":prix",$prix);
+            $_resultset->bindValue(":stock",$stock);
+            $_resultset->bindValue(":photo",$photo);
+            $_resultset->bindValue(":id_categorie",$id_categorie);
+            $_resultset->execute();
+            $retour = $_resultset->fetchColumn(0);
+            return $retour;
+        } catch (PDOException $e){
+            print "Echec de la requête : ".$e->getMessage();
+        }
+    }
 }

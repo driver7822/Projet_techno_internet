@@ -61,6 +61,11 @@
 
     <h2>Avis clients</h2>
         <?php
+            if (isset($_SESSION['user'])){
+                ?>
+                <a href="#avis" class="btn btn-primary">Ajouter un commentaire</a>
+                    <?php
+            }
 
             if ($verif!=0){
 
@@ -70,7 +75,6 @@
                 for ($i=0;$i<$nbr;$i++){
 
         ?>
-    <br>
         <div class="container avis">
             <div class="row no-gutters">
                 <div class="col- col-md-2 avis-identification">
@@ -81,7 +85,7 @@
                     </p>
                     <p>Posté le <br>
                         <?php
-                            print $avis[$i]->date_message;
+                            print date('d/m/Y',strtotime($avis[$i]->date_message));
                         ?>
                     </p>
                 </div>
@@ -110,6 +114,24 @@
                 </div>
                 <?php
             }
+      if (isset($_SESSION['user'])){
+          ?>
+        <div class="container avis" id="avis">
+            <form>
+                <input type="hidden" id="id_produit" name="id_produit" value="<?php print $_GET['id']?>">
+                <input type="hidden" id="pseudo" name="pseudo" value="<?php print $_SESSION['login_user']?>">
+                <input type="hidden" id="date" name="date" value="<?php print date('Y-m-d')?>">
+                <div class="form-group">
+                    <textarea class="form-control" id="avisMessage" name="avisMessage" rows="3" required></textarea>
+                </div>
+            </form>
+            <br>
+            <button class="btn btn-lg btn-primary" id="AjoutAvis" name="ajoutAvis">Ajouter un Avis</button>
+        </div>
+<?php
+      }
+
+
     } else {
         header("Location: index.php?page=page404.php");
         exit();

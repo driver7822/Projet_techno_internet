@@ -42,4 +42,32 @@ class AvisBD extends Avis {
             print "Echec de la requête : ".$e->getMessage();
         }
     }
+
+    public function DeleteAvisById($id){
+        try {
+            $query = "DELETE FROM avis WHERE id_avis=:id";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(':id',$id);
+            $_resultset->execute();
+
+        } catch (PDOException $e){
+            print "Echec de la requête : ".$e->getMessage();
+        }
+    }
+
+    public function AjoutAvis($pseudo,$date,$message,$id_produit){
+        try {
+            $query = "SELECT ajoutavis(:pseudo,:date,:message,:id_produit) as retour";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(":pseudo",$pseudo);
+            $_resultset->bindValue(":date",$date);
+            $_resultset->bindValue(":message",$message);
+            $_resultset->bindValue(":id_produit",$id_produit);
+            $_resultset->execute();
+            $retour = $_resultset->fetchColumn(0);
+            return $retour;
+        } catch (PDOException $e){
+            print "Echec de la requête : ".$e->getMessage();
+        }
+    }
 }

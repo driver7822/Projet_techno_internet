@@ -19,6 +19,10 @@
                 </li>
             </ul>
         </div>
+        <?php
+            if (!isset($_SESSION['user'])){
+
+        ?>
         <div class="collapse navbar-collapse bouton-connexion-user" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -26,5 +30,29 @@
                 </li>
             </ul>
         </div>
+        <?php
+            }
+            if (isset($_SESSION['user'])){
+            ?>
+                <div class="collapse navbar-collapse bouton-connexion-user" id="navbarNavDropdown">
+                    <div class="navbar-nav">
+                        <li class="nav-item dropdown dropstart">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php
+                                print $_SESSION['login_user'];
+                                ?>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="?page=modification_utilisateur.php">Mon compte</a></li>
+                                <li><a class="dropdown-item" href="#">Mon panier</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="index.php?page=deconnexion.php">Déconnexion</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
     </div>
 </nav>

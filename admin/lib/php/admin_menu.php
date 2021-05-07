@@ -15,14 +15,15 @@
                     <a class="nav-link" href="index.php?page=gestion_produit.php">Gestion des produits</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Info</a>
+                    <a class="nav-link" href="index.php?page=gestion_categorie.php">Gestion catégorie</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?page=gestion_utilisateur.php">Gestion utilisateur</a>
+                </li>
             </ul>
         </div>
         <?php
             if (!isset($_SESSION['admin'])) {
-
 
         ?>
         <div class="collapse navbar-collapse bouton-connexion-user" id="navbarNavDropdown">
@@ -33,8 +34,7 @@
 
         <?php
             }
-        ?>
-        <?php
+
         if(isset($_SESSION['admin'])){
             ?>
         <div class="collapse navbar-collapse bouton-connexion-user" id="navbarNavDropdown">
@@ -46,9 +46,9 @@
                     ?>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <!--<li><a class="dropdown-item" href="#">Action</a></li>
                     <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
+                    <li><hr class="dropdown-divider"></li>-->
                     <li><a class="dropdown-item" href="index.php?page=deconnexion.php">Déconnexion</a></li>
                 </ul>
             </li>
