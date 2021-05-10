@@ -52,4 +52,4 @@
     Chargement ...
 </div>
 
-<!--<meta http-equiv="refresh": content="0;URL=index.php?page=ajout_produit.php">
+<meta http-equiv="refresh": content="0;URL=index.php?page=ajout_produit.php">

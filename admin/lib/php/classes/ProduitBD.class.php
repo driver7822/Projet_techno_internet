@@ -22,8 +22,49 @@ class ProduitBD extends Produit {
         return $_data;
     }
 
+    public function getAllProduitFiltre($filtre,$motcles){
+        $f="";
+
+        if ($filtre=="vide" && $motcles=="vide"){
+            $f = "ORDER BY id_produit";
+        }
+
+        if ($filtre=="ordreCroissant") {
+            $f = "ORDER BY nom ASC";
+        }
+
+        if ($filtre=="ordreDecroissant"){
+            $f = "ORDER BY nom DESC";
+        }
+
+        if ($filtre=="prixCroissant") {
+            $f = "ORDER BY prix ASC";
+        }
+
+        if ($filtre=="prixDecroissant"){
+            $f = "ORDER BY prix DESC";
+        }
+
+        $m="";
+
+        if ($motcles!="vide"){
+            $m = "WHERE LOWER(nom) LIKE LOWER('%".$motcles."%')";
+        }
+
+        $query = "SELECT * FROM produit ".$m.$f;
+
+        $_resultset = $this->_db->prepare($query);
+        $_resultset->execute();
+
+        while ($d = $_resultset->fetch()){
+            $_data[] = new Produit($d);
+        }
+
+        return $_data;
+    }
+
     public function getProduitById($id){
-        $this->_db->beginTransaction();
+        //$this->_db->beginTransaction();
         $query = "SELECT * FROM produit WHERE id_produit=:id";
         $_resultset = $this->_db->prepare($query);
         $_resultset->bindValue(':id',$id);
@@ -31,7 +72,7 @@ class ProduitBD extends Produit {
         $_data = $_resultset->fetch(PDO::FETCH_OBJ);
 
         return $_data;
-        $this->_db->commit();
+        //$this->_db->commit();
     }
 
     public function getProduitById2($id){
@@ -42,10 +83,6 @@ class ProduitBD extends Produit {
 
         $data = $_resultset->fetch();
         return $data;
-    }
-
-    public function getProduitByMotCle(){
-
     }
 
     public function getMessageAvisByProduit($id_prod){

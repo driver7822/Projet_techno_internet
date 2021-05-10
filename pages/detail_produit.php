@@ -34,7 +34,7 @@
                     print $produit->prix;
                 ?>
                 €</p>
-            <a href="#" class="btn btn-primary">Ajouter au panier</a>
+            <button class="btn btn-lg btn-primary" id="AjouterAuPanier" name="ajoutAuPanier" data-bs-toggle="modal" data-bs-target="#ajoutSucces" value="<?php print $_GET['id']; ?>">Ajouter au panier</button>
             <br>
             <br>
             <br>
@@ -130,7 +130,27 @@
         </div>
 <?php
       }
+?>
+        <div class="modal fade" id="ajoutSucces" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            <?php
+                            if (isset($_SESSION['user'])){
+                                print "Élément ajouter au panier avec succès";
+                            } else {
+                                print "Veuillez vous connecter pour ajouter au panier";
+                            }
+                            ?>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+<?php
 
     } else {
         header("Location: index.php?page=page404.php");

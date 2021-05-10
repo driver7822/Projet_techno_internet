@@ -44,7 +44,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="?page=modification_utilisateur.php">Mon compte</a></li>
-                                <li><a class="dropdown-item" href="#">Mon panier</a></li>
+                                <li><a class="dropdown-item" href="?page=panier.php">Mon panier</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="index.php?page=deconnexion.php">Déconnexion</a></li>
                             </ul>

@@ -3,6 +3,9 @@
     session_start();
     include ('./admin/lib/php/admin_liste_include.php');
     $cnx = Connexion::getInstance($dsn,$user,$password);
+
+    $panier = new Panier();
+
 ?>
 <html>
 <head>

@@ -1,54 +1,51 @@
 <?php
-    $prod = new ProduitBD($cnx);
+$liste=array();
 
-    $liste = $prod->getAllProduit();
+if (isset($_SESSION['prod'])) {
+    $liste = unserialize($_SESSION['prod']);
+    unset($_SESSION['prod']);
+}
 
-    $nbre = count($liste);
+
 ?>
-
 <br>
-<div class="test">
+<div>
+    <form id="filtres" name="filtres" action="" method="post">
     <div class="row no-gutters">
         <div class="col">
             <div class="btn-group" role="group">
-                <form action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
                     <select name="filtre_produit" id="filtre_produit" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                        <option selected>Choisir un filtre</option>
+                        <option selected value="vide">Choisir un filtre</option>
                         <option value="ordreCroissant">Ordre Alphabétique croisssant</option>
                         <option value="ordreDecroissant">Ordre Alphabétique décroisssant</option>
                         <option value="prixCroissant">Prix ordre croissant</option>
                         <option value="prixDecroissant">Prix ordre décroissant</option>
                     </select>
-                </form>
-
-                <input type="submit" name="submit_id" id="submit_id" value="Chercher">
             </div>
         </div>
         <div class="col">
-            <form class="d-flex" action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
-                <input class="form-control me-2" type="text" id="motscles" name="motscles" placeholder="Mots-clés" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Chercher</button>
-            </form>
+                <input class="form-control me-2" type="text" id="motscles" name="motscles" placeholder="Mots-clés">
+            <input type="submit" name="submit_filtres" id="submit_filtres" value="Chercher">
         </div>
+
     </div>
+    </form>
 </div>
-
-<?php
-
-
-?>
 
 <br>
 <br>
 
 <div class="album py-1 bg-light">
-    <div class="container">
+    <div class="container" id="toutlesproduits" name="toutlesproduits">
         <?php
+        if ($liste){
+            $nbre = count($liste);
+
             for($i=0;$i<$nbre;$i++){
 
-
         ?>
-        <div class="card">
+        <a style="color: black; text-decoration: none;" href="index.php?page=detail_produit.php&id=<?php print $liste[$i]->id_produit;?>">
+        <div class="card"">
             <div class="row no-gutters">
                 <div class="col-auto">
                     <img src="./admin/images/produits/<?php print $liste[$i]->photo; ?>" width="200px" height="200px" class="img-fluid" alt="<?php print $liste[$i]->photo; ?>">
@@ -73,14 +70,18 @@
                             print $liste[$i]->prix;
                         ?> €
                     </p>
-                    <a href="index.php?page=detail_produit.php&id=<?php print $liste[$i]->id_produit;?>" class="btn btn-primary bouton-boutique">Détail</a>
-                    <a href="#" class="btn btn-primary bouton-boutique">Ajouter au panier</a>
                 </div>
             </div>
-        </div>
-                <br>
-        <?php
+        </div></a><br>
+            <?php
             }
-        ?>
+        } else {
+            ?>
+            <div class="card aucun-produit-selection" style="padding: 2em;text-align: center;font-size: 2em;">
+                Aucun produit ne correspond à votre sélection
+            </div>
+        <?php
+        }
+            ?>
     </div>
 </div>
