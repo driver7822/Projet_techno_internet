@@ -32,7 +32,7 @@ if (isset($_SESSION['admin'])){
                         </span>
                     </td>
                     <td>
-                        <a class="btn btn-danger" type="button" href="index.php?page=suppression_categorie.php&id=<?php print $liste[$i]->id_categorie;?>">Suppression</a>
+                        <a class="btn btn-danger" type="button" href="index.php?page=suppression_categorie.php&id=<?php print $liste[$i]->id_categorie;?>"><i class="far fa-trash-alt"></i></a>
                     </td>
                 </tr>
                 <?php

@@ -86,20 +86,4 @@ $(document).ready(function (){
         setTimeout(function(){location.reload()}, 100);
     });
 
-    $('#supprimerUnAvis').click(function (){
-        var id = $(this).val();
-
-        var parametre = 'id='+id;
-
-        $.ajax({
-            type:'GET',
-            data: parametre,
-            dataType: 'json',
-            url:'./lib/php/ajax/ajaxDeleteAvis.php',
-            success: function (data){
-                console.log(data)
-            }
-        })
-        setTimeout(function(){location.reload()}, 100);
-    });
 })

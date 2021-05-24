@@ -27,6 +27,6 @@ if ($readyToSend){
 
 ?>
 
-<meta http-equiv="refresh": content="0;URL=index.php?page=creation_compte_user.php">
+<meta http-equiv="refresh": content="0;URL=index.php?page=accueil.php">
 
 

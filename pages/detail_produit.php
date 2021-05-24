@@ -12,9 +12,9 @@
 
     <div class="row no-gutters">
         <div class="col-auto">
-            <img src="./admin/images/produits/<?php print $produit->photo; ?>" width="400px" height="400px" alt="<?php print $produit->photo; ?>">
+            <img src="./admin/images/produits/<?php print $produit->photo; ?>" class="img-fluid" width="400px" height="400px" alt="<?php print $produit->photo; ?>">
         </div>
-        <div class="col-6 titre-et-description-detail">
+        <div class="col-md-6 titre-et-description-detail">
             <h4 class="titre-produit-detail">
                 <?php
 
@@ -34,7 +34,31 @@
                     print $produit->prix;
                 ?>
                 €</p>
-            <button class="btn btn-lg btn-primary" id="AjouterAuPanier" name="ajoutAuPanier" data-bs-toggle="modal" data-bs-target="#ajoutSucces" value="<?php print $_GET['id']; ?>">Ajouter au panier</button>
+            <?php
+                $quantite = $produit->stock;
+
+                if (isset($_SESSION['user']) && $quantite>0){
+            ?>
+            <button class="btn btn-lg btn-primary boutton-panier" id="AjouterAuPanier" name="ajoutAuPanier" value="<?php print $_GET['id']; ?>">
+                <span class="ajouterAuPanier"> Ajouter au panier </span>
+                <span class="message">Élément ajouté </span>
+                <span class="produit-ajouter"><i class="fa fa-shopping-cart"></i></span>
+            </button>
+            <?php
+                }
+
+                if (!isset($_SESSION['user']) && $quantite>0){
+            ?>
+            <a href="?page=connexion.php" button class="btn btn-lg btn-primary">Ajouter au panier</a>
+            <?php
+                }
+
+                if ($quantite == 0){
+            ?>
+                    <p>Malheureusement le produit n'est plus en stock pour le moment</p>
+            <?php
+                }
+            ?>
             <br>
             <br>
             <br>
@@ -75,9 +99,8 @@
                 for ($i=0;$i<$nbr;$i++){
 
         ?>
-        <div class="container avis">
-            <div class="row no-gutters">
-                <div class="col- col-md-2 avis-identification">
+        <div class="row no-gutters avis">
+                <div class="col-md-2 avis-identification">
                     <p>
                         <?php
                             print $avis[$i]->pseudo;
@@ -89,14 +112,13 @@
                         ?>
                     </p>
                 </div>
-                <div class="col-xl col-md-10 avis-message">
+                <div class="col-sm-10 avis-message">
                     <p>
                         <?php
                             print $avis[$i]->message;
                         ?>
                     </p>
                 </div>
-            </div>
         </div>
 <?php
                 }
@@ -107,8 +129,8 @@
                         <div class="col-xl col-md-12">
                             <p style="text-align: center">
                                 <br>
-                Aucun Avis, Soyez le premier à commenter
-                </p>
+                                Aucun Avis, Soyez le premier à commenter
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -131,24 +153,6 @@
 <?php
       }
 ?>
-        <div class="modal fade" id="ajoutSucces" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">
-                            <?php
-                            if (isset($_SESSION['user'])){
-                                print "Élément ajouter au panier avec succès";
-                            } else {
-                                print "Veuillez vous connecter pour ajouter au panier";
-                            }
-                            ?>
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 <?php
 

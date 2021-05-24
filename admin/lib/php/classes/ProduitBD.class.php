@@ -156,4 +156,29 @@ class ProduitBD extends Produit {
             print "Echec de la requête : ".$e->getMessage();
         }
     }
+
+    public function getQuantiterById($id){
+        try {
+            $query = "SELECT stock FROM produit WHERE id_produit=:id";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(":id",$id);
+            $_resultset->execute();
+            $retour = $_resultset->fetchColumn(0);
+            return $retour;
+        } catch (PDOException $e){
+            print "Echec de la requête : ".$e->getMessage();
+        }
+    }
+
+    public function updateQuantiter($id,$quantiter) {
+        try {
+            $query = "UPDATE produit SET stock = stock - :quantiter WHERE id_produit=:id";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(":quantiter",$quantiter);
+            $_resultset->bindValue(":id",$id);
+            $_resultset->execute();
+        } catch (PDOException $e){
+            print "Echec de la requête : ".$e->getMessage();
+        }
+    }
 }

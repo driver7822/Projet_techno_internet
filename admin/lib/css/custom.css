@@ -49,13 +49,25 @@
     border: 1px solid lightgray;
 }
 
-.avis-identification {
-    border-right: 1px solid gray;
+@media (min-width: 751px) {
+    .avis-identification {
+        border-right: 1px solid gray;
+    }
+}
+
+@media (max-width: 751px) {
+    .avis-identification {
+        border-bottom: 1px solid gray;
+    }
+    .avis-message {
+        margin-top: 1em;
+    }
 }
 
 .avis-message {
    padding-left: 2em;
 }
+
 
 .filtre-categorie {
     padding-left: 2em;

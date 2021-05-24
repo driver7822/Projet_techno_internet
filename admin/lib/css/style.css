@@ -24,3 +24,61 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+.boutique {
+    color: black;
+    text-decoration: none;
+    transition: all 1s ease-in-out;
+}
+
+.card-boutique:hover {
+    transform: scale(1.01);
+}
+
+
+.boutton-panier .ajouterAuPanier {
+    opacity: 1;
+}
+
+.boutton-panier .produit-ajouter {
+    display: none;
+}
+
+.boutton-panier .message {
+    display: none;
+}
+
+.boutton-panier.clicked span.ajouterAuPanier {
+    display: none;
+}
+
+.boutton-panier.clicked span.produit-ajouter {
+    display: inline ;
+    animation: panier 1.5s ease-in-out forwards;
+}
+
+.boutton-panier.clicked span.message {
+    display: inline;
+    animation: text 1.5s ease-in-out forwards;
+}
+
+@keyframes panier {
+    from {
+
+        margin-left: -190%;
+    }
+
+    to {
+        margin-left: 0%;
+    }
+}
+
+@keyframes text {
+    0%,
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

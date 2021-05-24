@@ -110,7 +110,7 @@
                                     print $avis[$i]->date_message;
                                     ?>
                                 </p>
-                                <button type="button" id="supprimerUnAvis" name="supprimerUnAvis" class="btn btn-danger" value="<?php print $avis[$i]->id_avis;?>">Supprimer</button>
+                                <a class="btn btn-danger" type="button" href="index.php?page=suppression_avis.php&id=<?php print $avis[$i]->id_avis;?>&idProd=<?php print $id; ?>">Supprimer</a>
                             </div>
                             <div class="col-xl col-md-10 avis-message">
                                 <p>

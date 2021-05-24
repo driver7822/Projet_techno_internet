@@ -49,7 +49,7 @@ class UtilisateurBD extends Utilisateur {
             $_resultset->bindValue(":pseudo",$pseudo);
             $_resultset->execute();
 
-            $data = $_resultset->fetch();
+            $data = $_resultset->fetch(PDO::FETCH_OBJ);
             return $data;
         } catch (PDOException $e){
             print "Erreur de la requête : ".$e->getMessage();

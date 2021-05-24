@@ -133,26 +133,8 @@ $(document).ready(function (){
                     }
                 });
             }
-
            setTimeout(function(){location.reload()}, 500);
         });
-    });
-
-    $('span[id]').click(function (){
-        var id = $(this).attr("id");
-
-        var parametre = 'idProd='+id;
-
-        $.ajax({
-            type: 'GET',
-            data: parametre,
-            dataType: 'text',
-            url: './admin/lib/php/ajax/ajaxAjouterAuPanier.php',
-            success: function (data){
-                console.log(data);
-            }
-        });
-
     });
 
     $('#AjouterAuPanier').click(function (){
@@ -183,4 +165,18 @@ $(document).ready(function (){
         });
         setTimeout(function(){location.reload()}, 500);
     });
+
+    $('#facture').ready($('#facture').hide());
+
+    $('#paypal').click(function () {
+        $('#facture').show();
+    })
+
+    $('#AjouterAuPanier').click(function (){
+        let boutton = this;
+        boutton.classList.add('clicked');
+
+        setTimeout(function (){boutton.classList.remove('clicked');},3100)
+    });
+
 })

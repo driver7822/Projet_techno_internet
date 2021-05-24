@@ -11,15 +11,15 @@ if (isset($_SESSION['prod'])) {
 <br>
 <div>
     <form id="filtres" name="filtres" action="" method="post">
-    <div class="row no-gutters">
-        <div class="col">
+    <div class="row ">
+        <div class="col-lg">
             <div class="btn-group" role="group">
                     <select name="filtre_produit" id="filtre_produit" class="form-select form-select-sm" aria-label=".form-select-sm example">
                         <option selected value="vide">Choisir un filtre</option>
-                        <option value="ordreCroissant">Ordre Alphabétique croisssant</option>
-                        <option value="ordreDecroissant">Ordre Alphabétique décroisssant</option>
-                        <option value="prixCroissant">Prix ordre croissant</option>
-                        <option value="prixDecroissant">Prix ordre décroissant</option>
+                        <option value="ordreCroissant">Ordre : Alphabétique croissant</option>
+                        <option value="ordreDecroissant">Ordre : Alphabétique décroissant</option>
+                        <option value="prixCroissant">Prix : ordre croissant</option>
+                        <option value="prixDecroissant">Prix : ordre décroissant</option>
                     </select>
             </div>
         </div>
@@ -44,8 +44,8 @@ if (isset($_SESSION['prod'])) {
             for($i=0;$i<$nbre;$i++){
 
         ?>
-        <a style="color: black; text-decoration: none;" href="index.php?page=detail_produit.php&id=<?php print $liste[$i]->id_produit;?>">
-        <div class="card"">
+        <a class="boutique" href="index.php?page=detail_produit.php&id=<?php print $liste[$i]->id_produit;?>">
+        <div class="card card-boutique">
             <div class="row no-gutters">
                 <div class="col-auto">
                     <img src="./admin/images/produits/<?php print $liste[$i]->photo; ?>" width="200px" height="200px" class="img-fluid" alt="<?php print $liste[$i]->photo; ?>">

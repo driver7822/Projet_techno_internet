@@ -38,7 +38,7 @@ if (isset($_SESSION['admin'])){
                     <?php print $liste[$i]->prenom;?>
                 </td>
                 <td>
-                    <a class="btn btn-danger" name="suppressionUtilisateur" id="suppressionUtilisateur" type="button" href="index.php?page=suppression_utilisateur.php&id=<?php print $liste[$i]->id_utilisateur;?>">Suppression</a>
+                    <a class="btn btn-danger" name="suppressionUtilisateur" id="suppressionUtilisateur" type="button" href="index.php?page=suppression_utilisateur.php&id=<?php print $liste[$i]->id_utilisateur;?>"><i class="far fa-trash-alt"></i></a>
                 </td>
             </tr>
             <?php
